@@ -11,7 +11,7 @@ namespace FlamingoApocalypseEvent.Handlers
 	{
 		public void OnDied(DiedEventArgs ev)
 		{
-			try
+			if (ev.Attacker != null)
 			{
 				RoleTypeId attackerRole = ev.Attacker.Role.Type;
 				Dictionary<RoleTypeId, RoleTypeId> infectedConfig = Plugin.Singleton.Config.Infected;
@@ -23,8 +23,6 @@ namespace FlamingoApocalypseEvent.Handlers
 					ev.Player.Role.Set(infectedRole, SpawnReason.Revived);
 				}
 			}
-			catch
-			{}
 		}
 	}
 }

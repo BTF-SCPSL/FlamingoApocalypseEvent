@@ -9,7 +9,7 @@ namespace FlamingoApocalypseEvent
     {
 		public override string Author => "Руслан0308c";
 		public override Version RequiredExiledVersion => new(9, 0, 1);
-		public override Version Version => new(1, 0, 0);
+		public override Version Version => new(1, 0, 1);
 
 		public static Plugin Singleton { get; private set; }
 
