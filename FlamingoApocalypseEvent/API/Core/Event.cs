@@ -44,13 +44,13 @@ namespace FlamingoApocalypseEvent.API.Core
 		private void StartEvents()
 		{
 			Exiled.Events.Handlers.Server.RestartingRound += Plugin.Singleton._serverHandlers.OnRestartingRound;
-			Exiled.Events.Handlers.Player.Died += Plugin.Singleton._playerHandlers.OnDied;
+			Exiled.Events.Handlers.Player.Dying += Plugin.Singleton._playerHandlers.OnDying;
 		}
 
 		private void StopEvents()
 		{
 			Exiled.Events.Handlers.Server.RestartingRound -= Plugin.Singleton._serverHandlers.OnRestartingRound;
-			Exiled.Events.Handlers.Player.Died -= Plugin.Singleton._playerHandlers.OnDied;
+			Exiled.Events.Handlers.Player.Dying -= Plugin.Singleton._playerHandlers.OnDying;
 		}
 
 		private void Start()

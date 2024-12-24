@@ -9,7 +9,7 @@ namespace FlamingoApocalypseEvent.Handlers
 {
 	internal sealed class PlayerHandlers
 	{
-		public void OnDied(DiedEventArgs ev)
+		public void OnDying(DyingEventArgs ev)
 		{
 			if (ev.Attacker != null)
 			{
@@ -19,7 +19,8 @@ namespace FlamingoApocalypseEvent.Handlers
 				if (infectedConfig.TryGetValue(attackerRole, out RoleTypeId infectedRole) &&
 					Player.List.Any(player => player.Role.Type == RoleTypeId.AlphaFlamingo))
 				{
-					Ragdoll.GetLast(ev.Player).Destroy();
+					ev.Player.DropItems();
+					ev.IsAllowed = false;
 					ev.Player.Role.Set(infectedRole, SpawnReason.Revived);
 				}
 			}
